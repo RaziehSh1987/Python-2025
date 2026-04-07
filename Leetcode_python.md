@@ -249,6 +249,12 @@ print(Counter(nums).most_common(1)[0][0])  # 3
 
 ---
 
+- `Counter(nums)` — takes a list and automatically counts how many times each element appears, returning a dictionary-like object e.g. `{3:3, 1:2, 2:1}`
+
+- `.most_common(n)` — returns the top `n` elements sorted by count as a list of `(value, count)` tuples. `.most_common(1)` → `[(3, 3)]`, `.most_common(2)` → `[(3, 3), (1, 2)]`. If you leave it empty `.most_common()` returns all elements ranked.
+
+---
+
 ## Summary
 
 | Approach           | Time Complexity | Space | Notes                  |
