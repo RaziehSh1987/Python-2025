@@ -78,5 +78,88 @@ print(two_sum([3, 2, 4], 6))  # [1, 2]
 | Combinations       | O(n²)           | O(1)  | Simple but slow      |
 | Hash Map (Optimal) | O(n)            | O(n)  | Recommended solution |
 
+
 ```
+````
+# Q2:
+## Valid Palindrome
+
+## Problem (Short)
+
+Given a string `s`, return `True` if it is a palindrome, or `False` otherwise.
+
+- A palindrome reads the same forward and backward  
+- Consider only alphanumeric characters (letters and digits)  
+- Ignore cases  
+
+---
+
+## Examples
+
+```
+
+Input: s = "A man, a plan, a canal: Panama"
+Output: True
+
+```
+
+After cleaning:  
+```
+
+"amanaplanacanalpanama"
+
+```
+
+
+Input: s = "race a car"
+Output: False
+
+
+---
+
+## Solution 1 — Manual Filtering
+
+- Time Complexity: **O(n)**
+- Space Complexity: **O(n)**
+- Easy to understand, step-by-step approach
+
+```python
+s = "A man, a plan, a canal: Panama"
+target = ""
+
+for i in s:
+    if i.isalnum():
+        target += i.lower()
+
+if target == target[::-1]:
+    print(True)
+else:
+    print(False)
+```
+
+
+---
+
+## Solution 2 — Pythonic (Recommended)
+
+* Time Complexity: **O(n)**
+* Space Complexity: **O(n)**
+* Cleaner and more concise
+
+```python
+def is_palindrome(s):
+    cleaned = ''.join(c.lower() for c in s if c.isalnum())
+    return cleaned == cleaned[::-1]
+```
+
+---
+
+## Summary
+
+| Approach      | Time Complexity | Space | Notes                           |
+| ------------- | --------------- | ----- | ------------------------------- |
+| Manual Filter | O(n)            | O(n)  | Step-by-step, beginner-friendly |
+| Pythonic      | O(n)            | O(n)  | Clean and concise               |
+
+````
 
