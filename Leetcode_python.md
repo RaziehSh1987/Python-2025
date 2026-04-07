@@ -163,3 +163,99 @@ def is_palindrome(s):
 
 ````
 
+
+````
+# Q3:
+## Most Frequent Element
+
+## Problem (Short)
+
+Given a list of integers `nums`, return the element that appears the most frequently.
+
+- If there is a tie, return any one of them  
+
+---
+
+## Examples
+
+```
+
+Input: nums = [1, 3, 3, 2, 1, 3]
+Output: 3
+
+```
+
+Explanation:  
+3 appears 3 times, more than any other number.
+
+```
+
+Input: nums = [7, 7, 4, 4, 4]
+Output: 4
+
+````
+
+---
+
+## Solution 1 — Using `.count()` (Inefficient)
+
+- Time Complexity: **O(n²)**
+- Space Complexity: **O(n)**
+- Not recommended for large inputs
+
+```python
+nums = [1, 3, 3, 2, 1, 3]
+
+cnt = {}
+for num in nums:
+    cnt[num] = nums.count(num)
+
+# get the key with the highest value
+print(max(cnt, key=lambda k: cnt[k]))  # 3
+
+
+---
+
+## Solution 2 — Hash Map (Optimal)
+
+* Time Complexity: **O(n)**
+* Space Complexity: **O(n)**
+* Recommended approach
+
+```python
+nums = [1, 3, 3, 2, 1, 3]
+
+cnt = {}
+for num in nums:
+    cnt[num] = cnt.get(num, 0) + 1
+
+print(max(cnt, key=lambda k: cnt[k]))  # 3
+```
+
+---
+
+## Solution 3 — Using `collections.Counter`
+
+* Time Complexity: **O(n)**
+* Space Complexity: **O(n)**
+* Most concise and Pythonic
+
+```python
+from collections import Counter
+
+nums = [1, 3, 3, 2, 1, 3]
+print(Counter(nums).most_common(1)[0][0])  # 3
+```
+
+---
+
+## Summary
+
+| Approach           | Time Complexity | Space | Notes                  |
+| ------------------ | --------------- | ----- | ---------------------- |
+| `.count()`         | O(n²)           | O(n)  | Simple but inefficient |
+| Hash Map           | O(n)            | O(n)  | Best for interviews    |
+| Counter (Built-in) | O(n)            | O(n)  | Clean and concise      |
+
+```
+
