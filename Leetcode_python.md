@@ -212,7 +212,7 @@ for num in nums:
 
 # get the key with the highest value
 print(max(cnt, key=lambda k: cnt[k]))  # 3
-
+```
 
 ---
 
