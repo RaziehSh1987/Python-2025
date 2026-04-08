@@ -291,6 +291,49 @@ class Solution:
                 n //= factor
 
         return n == 1
+````
+
+# Q5:
+## Ugly Number II
+
+## Question
+
+An ugly number is a positive integer whose prime factors are limited to 2, 3, and 5.
+
+Given an integer `n`, return the nth ugly number.
+
+### Example 1:
+Input: n = 10  
+Output: 12  
+Explanation: [1, 2, 3, 4, 5, 6, 8, 9, 10, 12]
+
+### Example 2:
+Input: n = 1  
+Output: 1  
+
+---
+
+## Answer
+
+```python
+class Solution:
+    def nthUglyNumber(self, n: int) -> int:
+        def isUgly(num):
+            for factor in [2, 3, 5]:
+                while num % factor == 0:
+                    num //= factor
+            return num == 1
+
+        num = 1
+        count = 1
+
+        while count <= n:
+            if isUgly(num):
+                count += 1
+            num += 1
+
+        return num - 1
+
 
 
 ````
