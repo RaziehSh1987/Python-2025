@@ -264,4 +264,33 @@ print(Counter(nums).most_common(1)[0][0])  # 3
 | Counter (Built-in) | O(n)            | O(n)  | Clean and concise      |
 
 ```
+````
 
+# Q4:
+## Ugly Number
+
+## Question
+Write a function that determines whether a given integer `n` is an ugly number.
+
+An ugly number is a positive integer whose prime factors are limited to 2, 3, and 5.
+
+Return `True` if `n` is an ugly number, otherwise return `False`.
+
+---
+
+## Answer
+
+```python
+class Solution:
+    def isUgly(self, n: int) -> bool:
+        if n <= 0:
+            return False
+
+        for factor in [2, 3, 5]:
+            while n % factor == 0:
+                n //= factor
+
+        return n == 1
+
+
+````
